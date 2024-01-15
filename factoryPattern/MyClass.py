@@ -1,3 +1,4 @@
+# 추상매서드를 사용하기 위한 import
 from abc import ABCMeta, abstractmethod
 
 
