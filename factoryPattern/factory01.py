@@ -2,6 +2,11 @@
 from abc import ABCMeta, abstractmethod
 
 
+# 팩토리 메서드 패턴은 객체를 만들어 내는 부분을 서브 클래스에 위임하는 패턴
+# 슈퍼클래스에 있는 클라이언트 코드와 서브클래스에 있는 객체 생성 코드를 분리 할 수 있다.
+# 객체 생성을 한 곳에 모아놓고 체계적으로 관리 할 수 있다.
+# 의존성 역전 원칙에 따라 구체적인 것이 아니라 추상적인 것에 의존하는 설계
+
 # Product
 class Mouse(metaclass=ABCMeta):
     @abstractmethod
