@@ -4,7 +4,7 @@
 class MyInt(type):
     def __call__(cls, *args, **kwargs):
         print('***** Here is My int *****', args)
-        print('Now do whatever you wnat with these objects...')
+        print('Now do whatever you want with these objects...')
         return type.__call__(cls, *args, **kwargs)
 
 
@@ -34,5 +34,7 @@ class Logger(metaclass=MetaSingleton):
 logger1 = Logger()
 logger2 = Logger()
 logger1.x = '1'
+logger2.y = '2'
 print(logger1.__dict__)
+print(logger1 is logger2)
 print(logger2.__dict__)
