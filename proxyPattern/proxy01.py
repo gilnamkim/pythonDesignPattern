@@ -3,9 +3,11 @@
 # 에이전트는(proxy) 배우를 대신해 스케줄과 출연료를 조율한다.
 # proxy객체를 통해
 
+
+# 메인 객체인 배우
 class Actor(object):
     def __init__(self):
-        self.isBusy = True
+        self.isBusy = None
 
     def occupied(self):
         self.isBusy = True
@@ -19,19 +21,28 @@ class Actor(object):
         return self.isBusy
 
 
+# 프록시(proxy)의 역할을 하는 에이전트
 class Agent(object):
     def __init__(self):
         self.principal = None
 
-    def work(self):
-        self.actor = Actor()
+    def work(self, actor):
+        self.actor = actor
         if self.actor.getStatus():
             self.actor.occupied()
         else:
             self.actor.available()
 
 
+# 클라이언트
 if __name__ == "__main__":
     r = Agent()
-    r.work()
+    tom = Actor()
+
+    r.work(tom)
+    tom.isBusy = True
+
+    r.work(tom)
+
+
 
